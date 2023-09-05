@@ -22,3 +22,23 @@ def lambda_handler(event, context):
     for obj in bucket.objects.all():
         key = obj.key
         print(key)
+
+
+******Identity-based policy examples for AWS Glue*******
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "GetTables",
+      "Effect": "Allow",
+      "Action": [
+        "glue:GetTable",
+        "glue:GetTables",
+	"glue:GetDatabase,
+        "glue:GetDatabases"        
+      ],
+      "Resource": "*"
+    }
+  ]
+}
